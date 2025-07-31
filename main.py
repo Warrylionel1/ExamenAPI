@@ -38,11 +38,11 @@ def add_information(new_information : List[Information]):
         information_db.append(information)
     return information_db
 
-@app.get("/information")
+@app.get("/post")
 def get_information():
     return information_db
 
-@app.put("/information")
+@app.put("/post")
 def update_or_add_information(information: Information):
     for i, info in enumerate(information_db):
         if info.title == information.title:
