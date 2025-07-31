@@ -42,6 +42,17 @@ def add_information(new_information : List[Information]):
 def get_information():
     return information_db
 
+@app.put("/information")
+def update_or_add_information(information: Information):
+    for i, info in enumerate(information_db):
+        if info.title == information.title:
+            information_db[i] = information
+            return {"message": "information updated successfully"}
+    information_db.append(information)
+    return {"message" : "information updated successfully"}
+
+
+
 
 
 
